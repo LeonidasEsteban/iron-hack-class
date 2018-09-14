@@ -7,8 +7,8 @@
   <title>Iron Hack :)</title>
 </head>
 <body>
-  <img src="" alt=""> imagen del poke
-  <p>Nombre del poke poke</p>
+  <img src="" alt="" id="image"> 
+  <p id="name"></p>
   <form action="" id="form">
     <input type="text" name="pokemon">
     <button>Buscar</button>
@@ -38,8 +38,10 @@
       .catch()
     }
 
+    const $image = document.querySelector('#image');
+    const $name = document.querySelector('#name');
     function renderPokemon(pokemon) {
-      
+      $image.setAttribute('src', pokemon.sprites.front_default);
     }
     $form.addEventListener('submit', buscarPoke)
 
