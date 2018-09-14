@@ -9,8 +9,19 @@
 <body>
   <img src="" alt=""> imagen del poke
   <p>Nombre del poke poke</p>
+  <form action="" id="form">
+    <input type="text">
+    <button>Buscar</button>
+  </form>
   <script>
     console.log('Hola Iron Hack, mucho gusto!');
+    const $form = document.querySelector('#form');
+    function buscarPoke(event) {
+      event.preventDefault();
+      console.log(event);
+    }
+    $form.addEventListener('submit', buscarPoke)
+
   </script>
 </body>
 </html>
