@@ -27,8 +27,19 @@
     function getPokemon(id) {
       console.log(id)
       fetch('https://pokeapi.co/api/v2/pokemon/rattata')
-      .then()
+      .then((respuesta) => {
+        console.log(respuesta)
+        respuesta.json()
+        .then((pokemon)=> {
+          console.log(pokemon)
+          renderPokemon(pokemon)
+        })  
+      })
       .catch()
+    }
+
+    function renderPokemon(pokemon) {
+      
     }
     $form.addEventListener('submit', buscarPoke)
 
