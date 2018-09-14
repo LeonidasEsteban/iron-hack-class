@@ -10,7 +10,7 @@
   <img src="" alt=""> imagen del poke
   <p>Nombre del poke poke</p>
   <form action="" id="form">
-    <input type="text">
+    <input type="text" name="pokemon">
     <button>Buscar</button>
   </form>
   <script>
@@ -18,7 +18,14 @@
     const $form = document.querySelector('#form');
     function buscarPoke(event) {
       event.preventDefault();
-      console.log(event);
+      // console.log(event);
+      const form = new FormData($form);
+      const pokemonId = form.get('pokemon');
+      getPokemon(pokemonId);
+    }
+
+    function getPokemon(id) {
+      console.log(id)
     }
     $form.addEventListener('submit', buscarPoke)
 
