@@ -16,7 +16,7 @@
   <script>
     console.log('Hola Iron Hack, mucho gusto!');
     const $form = document.querySelector('#form');
-    function buscarPoke(event) {
+    const buscarPoke = (event) => {
       event.preventDefault();
       // console.log(event);
       const form = new FormData($form);
@@ -24,23 +24,25 @@
       getPokemon(pokemonId);
     }
 
-    function getPokemon(id) {
+    const getPokemon = async (id) => {
       console.log(id)
-      fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then((respuesta) => {
-        console.log(respuesta)
-        respuesta.json()
-        .then((pokemon)=> {
-          console.log(pokemon)
-          renderPokemon(pokemon)
-        })  
-      })
-      .catch()
+      const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      const pokemon = await respuesta.json()
+      renderPokemon(pokemon)
+      // .then((respuesta) => {
+      //   console.log(respuesta)
+      //   respuesta.json()
+      //   .then((pokemon)=> {
+      //     console.log(pokemon)
+      //     renderPokemon(pokemon)
+      //   })  
+      // })
+
     }
 
     const $image = document.querySelector('#image');
     const $name = document.querySelector('#name');
-    function renderPokemon(pokemon) {
+    const renderPokemon = (pokemon) => {
       $image.setAttribute('src', pokemon.sprites.front_default);
       $name.innerHTML = `<strong>${pokemon.name}</strong>`
     }
